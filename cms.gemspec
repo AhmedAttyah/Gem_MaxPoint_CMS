@@ -30,4 +30,5 @@ Gem::Specification.new do |s|
   s.add_dependency "jquery-ui-rails"
   s.add_dependency "dragonfly", '~> 0.9.15'
   s.add_dependency "ckeditor", '~> 4.0.4'
+  s.add_dependency "nokogirl"
 end
