@@ -1,0 +1,18 @@
+- if @posts.any?
+  .posts
+    - @posts.each do |post|
+      %h2
+        = link_to post.title, cms_post_path(post)
+    = paginate @posts
+  .categories
+    %h4 Categories
+    %ul
+      - categories.each do |c|
+        %li= link_to_if c.posts.any?, c.name, cms_category_path(c)
+  .tags
+    %h4 Tags
+    %ul
+      - tags.each do |t|
+        %li= link_to_if t.posts.any?, t.name, cms_tag_path(t)
+- else
+  %h1 There are no posts!

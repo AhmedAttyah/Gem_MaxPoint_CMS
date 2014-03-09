@@ -1,0 +1,24 @@
+.fields
+  %legend
+    %i.icon-align-justify.handle
+    = component.friendly_name
+    = remove_child_link '<i class="icon-remove"></i>'.html_safe, f, class: 'pull-right'
+  = f.hidden_field :"_type", value: component.name
+  = f.hidden_field :position
+  .field-container
+    - component.fields_with_options.each do |field, options|
+      = f.h_cms_field field, options
+  .dynamic-container
+    = f.fields_for :components, sorted_form_components(f) do |component_fields|
+      = render 'cms/components/component', f: component_fields, component: component_fields.object.class
+  - if component.subcomponents.any?
+    .action
+      .btn-group.pull-right.add-component
+        = add_child_link %Q(<i class="icon-plus"></i> #{component.default_subcomponent.friendly_name}).html_safe, :components, name: component.default_subcomponent.symbolized, class: 'btn'
+        %a.btn.dropdown-toggle{href: "#", data:{toggle: 'dropdown'}}
+          %span.caret
+        %ul.dropdown-menu
+          - component.subcomponents.each do |subcomponent, options|
+            %li
+              = add_child_link subcomponent.friendly_name, :components, name: subcomponent.symbolized
+      .clear{style: 'clear: both'}

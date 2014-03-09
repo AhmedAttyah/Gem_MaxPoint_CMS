@@ -1,0 +1,25 @@
+.row-fluid
+  %h3 Moderate Comment
+  %table.table
+    %tbody
+      %tr
+        %td Status
+        %td= @comment.approved_by_id.present? ? 'Approved' : 'Pending Moderation'
+      %tr
+        %td Name
+        %td= @comment.name
+      %tr
+        %td Email
+        %td= @comment.email
+      %tr
+        %td Website
+        %td= @comment.website
+      %tr
+        %td Comment
+        %td= @comment.body
+.row-fluid
+  = form_for [:dashboard, @comment] do |f|
+    .form-actions
+      - if @comment.approved_by_id.blank?
+        = f.submit "Approve", class: 'btn btn-info'
+      = link_to "Delete Comment", [:dashboard, @comment], method: :delete, confirm: "Are you sure? This will remove the comment permanently from the system.", class: 'btn btn-danger pull-right'

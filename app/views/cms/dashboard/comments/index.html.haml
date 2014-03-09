@@ -1,0 +1,23 @@
+%h1 Comments
+.row-fluid
+  %table.table
+    %thead
+      %tr
+        %th Status
+        %th Name
+        %th Email
+        %th Website
+        %th Preview
+        %th
+    %tbody
+      - @comments.each do |comment|
+        %tr
+          %td= comment.approved_by_id.present? ? 'Approved' : 'Pending Moderation'
+          %td= comment.name
+          %td= comment.email
+          %td= comment.website
+          %td= comment.body.to_s.truncate(32)
+          - if comment.approved_by_id.present?
+            %td= link_to 'edit', edit_dashboard_comment_path(comment)
+          - else
+            %td= link_to 'moderate', edit_dashboard_comment_path(comment)

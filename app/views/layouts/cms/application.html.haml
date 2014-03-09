@@ -1,0 +1,64 @@
+!!! 5
+%html
+  %head
+    %title Cms
+    = stylesheet_link_tag    "cms/application", :media => "all"
+    = javascript_include_tag "cms/application"
+    = csrf_meta_tags
+  %body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          = link_to conf.name, dashboard_root_path, class: 'brand'
+          %ul.nav
+            %li= link_to "Pages" , dashboard_pages_path
+            %li= link_to "Navigation", dashboard_links_path
+            %li.dropdown
+              = link_to "#", class: "dropdown-toggle", data: {toggle: 'dropdown'} do
+                Blog
+                %b.caret
+              %ul.dropdown-menu.pull-right
+                %li= link_to "Posts", dashboard_posts_path
+                %li= link_to "Comments", dashboard_comments_path
+                %li= link_to "Categories", dashboard_categories_path
+                %li= link_to "Tags", dashboard_tags_path
+          .pull-right
+            %ul.nav.pull-right
+              %li.dropdown
+                = link_to "#", class: "dropdown-toggle", data: {toggle: 'dropdown'} do
+                  #{current_locality.name}
+                  %b.caret
+                %ul.dropdown-menu
+                  - Cms::Locality.all.each do |locality|
+                    - present locality do |_locality|
+                      %li= link_to locality.name, url_for(only_path: true, _locality: locality.slug)
+              - if current_user.admin?
+                %li.dropdown
+                  = link_to "#", class: "dropdown-toggle", data: {toggle: 'dropdown'} do
+                    Management
+                    %b.caret
+                  %ul.dropdown-menu
+                    %li= link_to "Localities" , dashboard_localities_path
+                    %li= link_to "Users" , dashboard_users_path
+                    %li= link_to "Configuration" , edit_dashboard_configuration_path
+              %li.dropdown
+                = link_to "#", class: "dropdown-toggle", data: {toggle: 'dropdown'} do
+                  #{current_user.name}
+                  %b.caret
+                %ul.dropdown-menu
+                  %li
+                    = link_to edit_dashboard_user_path(current_user) do
+                      %i.icon-edit
+                      Account
+                  %li.divider
+                  %li
+                    = link_to destroy_dashboard_session_path do
+                      %i.icon-off
+                      Sign out
+    .container
+      = display_flash
+      = yield
+    .footer
+      .container
+        .details{style: "text-align: center; font-size: 80%; color: #AAA; margin-top: 24px; margin-bottom: 6px;"} Vasari Content Management System 1.0.0 &copy; 2013 Vasari Studio, LLC
+

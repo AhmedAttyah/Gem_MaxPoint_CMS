@@ -1,0 +1,18 @@
+%h1 Posts
+.row-fluid
+  .span2
+    = link_to "New Post", new_dashboard_post_path, class: 'btn btn-success'
+  .span10
+    %table.table
+      %thead
+        %tr
+          %th Title
+          %th Author
+          %th Date
+      %tbody
+        - @posts.each do |post|
+          - present post do |_post|
+            %tr
+              %td= link_to post.title, edit_dashboard_post_path(post)
+              %td= _post.author
+              %td= post.created_at

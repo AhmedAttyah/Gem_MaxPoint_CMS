@@ -1,0 +1,11 @@
+<div class="question">
+  <h2><%= component.question %></h2>
+  <%= cms_link_to "Store", [component, :store_link] %>
+
+  <dl>
+    <% components.each do |component| %>
+      <%= render_component component %>
+    <% end %>
+  </dl>
+  
+</div>

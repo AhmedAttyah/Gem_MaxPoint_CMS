@@ -1,0 +1,42 @@
+= horizontal_form_for [:dashboard, @link] do |f|
+  .row-fluid
+    .span7
+      %legend Anchor
+      = f.h_text_field :text
+      .control-group
+        = f.label :page_id, "Destination", class:'control-label'
+        .controls
+          = f.select :page_id, Cms::Page.select_for(current_locality).insert(0, ['[External URL]', -1]), include_blank: true
+          = f.text_field :external_url, placeholder: 'https://example.com/page'
+
+    .span5
+      %legend Nesting
+      = f.h_select :parent_id, Cms::Link.select_for(current_locality), include_blank: true
+      = f.h_text_field :position, label: 'Position under parent'
+
+  .row-fluid
+    .span12
+      %legend{data:{toggle: 'collapse', target: '.extra'}}
+        Extra
+        %small (click here)
+      .span8
+        .extra.collapse
+          = f.h_text_field :alt, label: "Alt text"
+          = f.h_select :target, Cms::Link::TARGET_OPTIONS
+          = f.h_text_field :title
+          = f.h_text_area :summary, class: 'input-block-level', rows: 4
+          = f.h_text_area :description, class: 'input-block-level', rows: 6
+
+  .row-fluid
+    .span12
+      %legend{data:{toggle: 'collapse', target: '.advanced'}}
+        Advanced
+        %small (click here)
+      .advanced.collapse
+        = f.h_text_field :name
+
+  .row-fluid
+    .span12
+      = f.submit class: 'btn btn-primary'
+      - if @link.persisted? && current_user.admin?
+        = link_to "Delete", dashboard_link_path(@link), class: "btn btn-danger", confirm: "Are you sure?", method: :delete

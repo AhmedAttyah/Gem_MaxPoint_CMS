@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  title: MyString
+  page_id: 1
+  external_url: MyString
+  locality_id: 1
+
+two:
+  name: MyString
+  title: MyString
+  page_id: 1
+  external_url: MyString
+  locality_id: 1

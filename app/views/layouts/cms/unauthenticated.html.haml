@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %title Cms
+    = stylesheet_link_tag    "cms/application", :media => "all"
+    = javascript_include_tag "cms/application"
+    = csrf_meta_tags
+  %body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          = link_to conf.name, '/', class: 'brand'
+    .container
+      = display_flash
+      = yield

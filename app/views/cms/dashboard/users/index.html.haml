@@ -1,0 +1,21 @@
+%h1 Users
+.row-fluid
+  .span2= link_to "Create a User", new_dashboard_user_path, :title => "Create a User", class: 'btn btn-success'
+  .span10
+    %table.table
+      %thead
+        %tr
+          %th Name
+          %th E-mail
+          %th Permissions
+          %th
+      %tbody
+        - @users.each do |user|
+          %tr
+            %td= user.name
+            %td= user.email
+            %td= user.admin? ? 'Admin' : 'Editor'
+            %td
+              = link_to 'Edit', edit_dashboard_user_path(user)
+              - unless current_user == user
+                = link_to 'Remove', [:dashboard, user], :confirm => 'Are you sure?', :method => :delete

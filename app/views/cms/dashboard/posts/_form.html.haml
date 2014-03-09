@@ -1,0 +1,15 @@
+= horizontal_form_for([:dashboard, @post]) do |f|
+  = f.h_text_field :title, class: 'input-block-level'
+  = f.h_text_field :slug, class: 'input-block-level', disabled: f.object.locked?
+  = f.h_select :author_id, Cms::User.all.collect{|u| [u.name, u.id]}
+  = f.h_text_area :description, class: 'input-block-level wysiwyg', rows: 4
+  = f.h_text_area :body, class: 'input-block-level wysiwyg'
+  = f.h_select :category_id, Cms::Category.in(current_locality).collect{|c| [c.name, c.id]}, include_blank: true
+  = f.h_text_field :tag_names, class: 'input-block-level tag-select', 'data-tags' => Cms::Tag.in(current_locality).all.map(&:name).join(',')
+  = f.h_text_field :published_at
+  = f.h_check_box :published
+  .form-actions
+    = f.submit class: 'btn btn-primary'
+    = link_to 'Cancel', dashboard_posts_path, class: 'btn'
+    - if @post.persisted?
+      = link_to 'Destroy', [:dashboard, @post], :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-danger pull-right'

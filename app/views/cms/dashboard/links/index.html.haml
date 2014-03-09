@@ -1,0 +1,25 @@
+%h1 Links
+.row-fluid
+  .span2
+    - if current_user.admin?
+      = link_to "New Link", new_dashboard_link_path, class: 'btn btn-success'
+  .span10
+    %table.table
+      %thead
+        %tr
+          %th Text
+          %th Location
+          %th Page
+          %th Name
+          %th
+      %tbody
+        - @links.each do |link|
+          %tr
+            %td= link.text
+            %td= link_to_if link.locality_location, link.location, link.locality_location, target: "_blank"
+            %td
+              - if link.page
+                = link_to link.page.title, edit_dashboard_page_path(link.page)
+            %td{style: "color: #AAA;"}= link.name
+            %td= link_to 'edit', edit_dashboard_link_path(link)
+

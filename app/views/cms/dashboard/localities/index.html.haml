@@ -1,0 +1,19 @@
+%h1 Localities
+.row-fluid
+  .span2
+    = link_to "Create a Locality", new_dashboard_locality_path, :title => "Create a Locality", class: 'btn btn-success'
+  .span10
+    %table.table
+      %thead
+        %tr
+          %th Slug
+          %th Name
+          %th
+      %tbody
+        - @localities.each do |locality|
+          %tr
+            %td= locality.slug
+            %td= locality.name
+            %td
+              = link_to 'edit', edit_dashboard_locality_path(locality)
+              = link_to 'destroy', [:dashboard, locality], confirm: 'Are you sure? This will delete associated pages and posts.', method: :delete

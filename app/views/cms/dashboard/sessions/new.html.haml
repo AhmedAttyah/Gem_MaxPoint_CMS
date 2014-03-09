@@ -1,0 +1,8 @@
+= form_tag dashboard_session_path, class: 'form-horizontal' do
+  .control-group
+    = label_tag :email, nil, class: 'control-label'
+    .controls= email_field_tag :email, params[:email]
+  .control-group
+    = label_tag :password, nil, class: 'control-label'
+    .controls= password_field_tag :password
+  .control-group.controls= submit_tag "Log Me In", class: 'btn btn-primary'

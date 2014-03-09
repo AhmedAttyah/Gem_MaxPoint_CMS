@@ -1,0 +1,19 @@
+%h1 Pages
+.row-fluid
+  .span2
+    - if current_user.admin?
+      = link_to "New Page", new_dashboard_page_path, class: 'btn btn-success'
+  .span10
+    %table.table
+      %thead
+        %tr
+          %th Title
+          %th Path
+          %th
+      %tbody
+        - @pages.each do |page|
+          %tr
+            %td= page.title
+            %td= link_to page.path, page.locality_path, target: "_blank"
+            %td
+              = link_to 'Edit', edit_dashboard_page_path(page)

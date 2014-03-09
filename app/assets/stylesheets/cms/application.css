@@ -1,0 +1,7 @@
+/*
+ *= require ./bootstrap_init
+ *= require bootstrap-wysihtml5
+ *= require select2
+ *= require_self
+ *= require_tree .
+ */

@@ -1,0 +1,49 @@
+.fields {
+  margin: 8px 0;
+  padding-left: 12px;
+
+  border: 1px solid #999;
+  border-radius: 12px;
+  -moz-border-radius: 12px;
+
+  .field-container {
+    margin-right: 18px;
+  }
+
+  a.remove_child {
+    margin-right: 8px;
+  }
+
+  .handle {
+    margin-top: 4px;
+    cursor: move;
+  }
+
+  .fields {
+    border-radius: 0;
+    -moz-border-radius: 0;
+    border-top: 1px solid #CCC;
+    border-left: 1px solid #CCC;
+    border-bottom: none;
+    border-right: none;
+
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 24px;
+    height: 100%;
+  }
+}
+
+.action {
+  border-top: 1px solid #CCC;
+  margin-left: 24px;
+  padding: 9px;
+  height: 32px;
+}
+.no-top {
+  border-top: none;
+}
+.add-component {
+  float: right;
+}
+

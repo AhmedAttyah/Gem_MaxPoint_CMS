@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= page_title %></title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <meta name="description" content="<%= yield :meta_description %>">
+    <meta name="keywords" content="<%= yield :meta_keywords %>">
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+
+    <% navigation :main do |main| %>
+      <div class="navbar">
+        <div class="navbar-inner">
+          <%= link_to main.text, main.location, class: 'brand' %>
+          <ul class="nav">
+            <% main.links.position(1).each do |link| %>
+              <li><%= link_to link.text, link.location, target: link.target %></li>
+            <% end %>
+            <% main.links.position(1..2).each do |link| %>
+              <li><%= link_to link.text, link.location, target: link.target %></li>
+            <% end %>
+            <% main.links.position(3..20).each do |link| %>
+              <% if link.links.any? %>
+                <li class="dropdown">
+                  <%= link_to "#", data: {toggle: "dropdown"}, class: "dropdown-toggle" do %>
+                    <%= link.text %>
+                    <b class="caret"></b>
+                  <% end %>
+                  <ul class="dropdown-menu">
+                    <% link.links.each do |link| %>
+                      <li><%= link_to link.text, link.location %></li>
+                    <% end %>
+                  </ul>
+                </li>
+              <% else %>
+                <li><%= link_to link.text, link.location, target: link.target %></li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+
+    <ul>
+      <% localities.each do |locality| %>
+        <li><%= link_to locality.name, locality.pages.home_page.locality_path rescue ""%></li>
+      <% end %>
+    </ul>
+
+    <h1><%= title.to_s.upcase %></h1>
+
+    <%= yield %>
+
+  </body>
+</html>

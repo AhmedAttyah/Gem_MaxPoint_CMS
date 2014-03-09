@@ -1,0 +1,5 @@
+.row-fluid
+  = horizontal_form_for [:dashboard, @configuration] do |f|
+    = f.h_text_field :name
+    = f.h_select :default_locality_id, Cms::Locality.all.collect{|l| [l.name, l.id]}, include_blank: true
+    = f.h_submit class: 'btn btn-primary'

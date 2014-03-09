@@ -1,0 +1,45 @@
+= horizontal_form_for [:dashboard, @page], as: :page do |f|
+  %legend Page
+  = f.h_text_field :title
+  = f.h_text_field :slug
+  = f.h_select :parent_id, Cms::Page.select_for(current_locality), include_blank: true
+  = f.h_check_box :published
+  .add-component
+    = f.submit "Preview", class: 'btn btn-primary btn-warning btn-page-preview'
+    = f.submit class: 'btn btn-primary btn-page-save'
+    - if @page.persisted?
+      -# link_to "Delete", dashboard_page_path(@page), class: "btn btn-danger", confirm: "Are you sure?", method: :delete
+    = link_to "Cancel", dashboard_pages_path, class: "btn"
+  %legend{data:{toggle: 'collapse', target: '.meta'}}
+    Meta
+    %small (click here)
+  .meta.collapse
+    = f.h_text_area :meta_description, rows: 4
+    = f.h_text_area :meta_keywords, rows: 4
+  - unless @page.persisted?
+    %legend{data:{toggle: 'collapse', target: '.advanced'}}
+      Advanced
+      %small (click here)
+    .advanced.collapse
+      = f.h_select :_type, Cms::Page::TYPES.keys.collect{|k| [k.titleize, k]}, label: 'Type'
+  .dynamic-container
+    = f.fields_for :components, sorted_form_components(f) do |component_fields|
+      = render 'cms/components/component', f: component_fields, component: component_fields.object.class
+  .action.no-top
+    = f.submit "Preview", class: 'btn btn-primary btn-warning btn-page-preview'
+    = f.submit class: 'btn btn-primary btn-page-save'
+    - if @page.persisted? && current_user.admin?
+      = link_to "Delete", dashboard_page_path(@page), class: "btn btn-danger", confirm: "Are you sure?", method: :delete
+    = link_to "Cancel", dashboard_pages_path, class: "btn"
+    .btn-group.add-component
+      %a.btn.dropdown-toggle{href: "#", data:{toggle: 'dropdown'}}
+        %i.icon-plus
+        Component
+        %span.caret
+      %ul.dropdown-menu
+        - Cms.page_components.each do |c|
+          %li= add_child_link c.friendly_name, :components, name: c.symbolized
+  - Cms.components.each do |component|
+    - new_child_fields_template f, :components, name: component.symbolized, object: component.new, partial: 'cms/components/component', locals: {component: component}
+- Cms.components.each do |component|
+  = template_for component.symbolized

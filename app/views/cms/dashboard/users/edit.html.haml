@@ -1,0 +1,18 @@
+.row-fluid
+  .span6
+    = horizontal_form_for @user, url: dashboard_user_path do |f|
+      %legend Update User
+      = f.h_text_field :name
+      = f.h_text_field :email
+      = f.h_check_box :admin
+      = f.h_submit "Update User", class: 'btn btn-primary'
+  .span6
+    = horizontal_form_for @user, url: dashboard_user_path do |f|
+      %legend Update Password
+      .control-group
+        = label_tag :current_password, nil, class: 'control-label'
+        .controls= password_field_tag :current_password
+      %hr
+      = f.h_password_field :password, label: 'New password'
+      = f.h_password_field :password_confirmation
+      = f.h_submit "Update Password", class: 'btn btn-primary'

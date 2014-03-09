@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  page_id: 1
+  parent_id: 1
+  position: 1
+  type: 
+  data: 
+
+two:
+  page_id: 1
+  parent_id: 1
+  position: 1
+  type: 
+  data: 

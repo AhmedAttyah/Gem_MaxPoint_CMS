@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  locality_id: 1
+  title: MyString
+  author: MyString
+  description: MyText
+  body: MyText
+  published: false
+  published_at: 2013-04-22 16:31:29
+  slug: MyString
+  page_title: MyString
+  page_description: MyText
+
+two:
+  locality_id: 1
+  title: MyString
+  author: MyString
+  description: MyText
+  body: MyText
+  published: false
+  published_at: 2013-04-22 16:31:29
+  slug: MyString
+  page_title: MyString
+  page_description: MyText

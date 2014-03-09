@@ -1,0 +1,33 @@
+= VASARI CMS
+
+Installation and/or usage of this sofware is subject to your license from Vasari Studio, LLC.
+
+== Directions
+- Create rails app
+- gem 'vasari-cms' in Gemfile.
+- mount Cms::Engine => '/' in routes.
+- rake cms:install:migrations
+- Create hstore extension.
+- rake db:migrate
+- comment out #config.active_record.whitelist_attributes = true in config/application.rb
+- ActiveRecord::Base.send(:include, ActiveModel::ForbiddenAttributesProtection) in initializer
+
+== Notes
+
+Need to run rails g hstore:setup in client application.
+
+Need to do this on the database
+  execute "CREATE EXTENSION IF NOT EXISTS hstore"
+  execute "DROP EXTENSION IF EXISTS hstore"
+
+= FYI = 
+vasari_cms_development=# CREATE EXTENSION IF NOT EXISTS hstore;
+WARNING:  => is deprecated as an operator name
+DETAIL:  This name may be disallowed altogether in future versions of PostgreSQL.
+
+In migrations that require hstore method put this at the top of the migration:
+require 'activerecord-postgres-hstore/activerecord'
+
+
+Turn off in config/application
+    #config.active_record.whitelist_attributes = true

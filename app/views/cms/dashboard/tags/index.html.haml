@@ -1,0 +1,12 @@
+%h1 Tags
+.row-fluid
+  .span2
+  .span10
+    %table.table
+      %thead
+        %tr
+          %th Name
+      %tbody
+        - @tags.each do |tag|
+          %tr
+            %td= tag.name

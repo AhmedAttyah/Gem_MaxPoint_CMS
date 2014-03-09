@@ -1,0 +1,12 @@
+= horizontal_form_for([:dashboard, @user]) do |f|
+  .row-fluid
+    .span12
+      = f.h_text_field :name
+      = f.h_text_field :email
+      = f.h_password_field :password
+      = f.h_password_field :password_confirmation
+      = f.h_check_box :admin
+  .form-actions
+    .row-fluid
+      .span6= f.h_submit class: 'btn btn-primary'
+      .span6= link_to 'Cancel', dashboard_users_path, class: 'btn'
