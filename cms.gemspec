@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.description = "Description of Cms."
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
-  s.test_files = Dir["test/**/*"]
+  s.test_files = Dir["test/**/*"]X
 
   s.add_dependency "rails", "~> 3.2.1"
   s.add_dependency "pg"
@@ -27,4 +27,7 @@ Gem::Specification.new do |s|
   s.add_dependency "presents"
   s.add_dependency "kaminari"
   s.add_dependency "bcrypt-ruby", '~> 3.0.0'
+  s.add_dependency "jquery-ui-rails"
+  s.add_dependency "dragonfly", '~> 0.9.15'
+  s.add_dependency "ckeditor", '~> 4.0.4'
 end
