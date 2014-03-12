@@ -22,11 +22,15 @@ module Cms
       where(locality_id: locality.id)
     }
 
-    scope :search, lambda { |text|
-      includes(:components).
-        where(published: true).
-        where("CAST(AVALS(cms_components.data) AS TEXT) @@ ?", text)
-    }
+    # scope :search, lambda { |text|
+    #   includes(:components).
+    #     where(published: true).
+    #     where("CAST(AVALS(cms_components.data) AS TEXT) @@ ?", text)
+    # }
+  
+    def self.search(search,page)
+      paginate :per_page => 10, :page => page, :conditions => ['title like ? or meta_keywords like ?', "%#{search}%", "%#{search}%"], :order => 'created_at DESC'
+    end
 
     CONTENT = 'content'.freeze
     BLOG = 'blog'.freeze
@@ -40,6 +44,7 @@ module Cms
     def self.home_page
       where(type: ['', nil, Cms::ContentPage.name], parent_id: nil, slug: ['', nil]).first
     end
+
     def self.post_page
       where(type: Cms::PostPage.name).first
     end
@@ -88,6 +93,5 @@ module Cms
       self.class.select_for(self.locality, true)
       Link.select_for(self.locality, true)
     end
-
   end
 end

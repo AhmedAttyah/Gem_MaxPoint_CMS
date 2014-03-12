@@ -1,34 +1,72 @@
-$:.push File.expand_path("../lib", __FILE__)
+# -*- encoding: utf-8 -*-
+# stub: vasari-cms 0.0.37 ruby lib
 
-# Maintain your gem's version:
-require "cms/version"
-
-# Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "vasari-cms"
-  s.version     = Cms::VERSION
-  s.authors     = ["Your name"]
-  s.email       = ["Your email"]
-  s.homepage    = nil
-  s.summary     = "Summary of Cms."
+  s.name = "vasari-cms"
+  s.version = "0.0.37"
+
+  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
+  s.require_paths = ["lib"]
+  s.authors = ["Your name"]
+  s.date = "2014-03-11"
   s.description = "Description of Cms."
+  s.email = ["Your email"]
+  s.files = ["README.rdoc", "Rakefile", "app/assets", "app/assets/javascripts", "app/assets/javascripts/cms", "app/assets/javascripts/cms/application.js", "app/assets/javascripts/cms/ckeditor", "app/assets/javascripts/cms/ckeditor/config.js", "app/assets/javascripts/cms/dashboard", "app/assets/javascripts/cms/dashboard/links.js", "app/assets/javascripts/cms/dashboard/pages.js", "app/assets/javascripts/cms/dynamic_forms.js", "app/assets/stylesheets", "app/assets/stylesheets/cms", "app/assets/stylesheets/cms/application.css", "app/assets/stylesheets/cms/bootstrap_init.css.scss", "app/assets/stylesheets/cms/dashboard", "app/assets/stylesheets/cms/dashboard/pages.css.scss", "app/assets/stylesheets/cms/localities.css.scss", "app/builders", "app/builders/horizontal_form_builder.rb", "app/controllers", "app/controllers/cms", "app/controllers/cms/application_controller.rb", "app/controllers/cms/comments_controller.rb", "app/controllers/cms/dashboard", "app/controllers/cms/dashboard/categories_controller.rb", "app/controllers/cms/dashboard/comments_controller.rb", "app/controllers/cms/dashboard/configurations_controller.rb", "app/controllers/cms/dashboard/links_controller.rb", "app/controllers/cms/dashboard/localities_controller.rb", "app/controllers/cms/dashboard/pages_controller.rb", "app/controllers/cms/dashboard/posts_controller.rb", "app/controllers/cms/dashboard/sessions_controller.rb", "app/controllers/cms/dashboard/static_controller.rb", "app/controllers/cms/dashboard/tags_controller.rb", "app/controllers/cms/dashboard/users_controller.rb", "app/controllers/cms/pages_controller.rb", "app/controllers/cms/posts_controller.rb", "app/helpers", "app/helpers/cms", "app/helpers/cms/application_helper.rb", "app/helpers/cms/bootstrap_helper.rb", "app/helpers/cms/dashboard", "app/helpers/cms/dashboard/component_helper.rb", "app/helpers/cms/dynamic_form_helper.rb", "app/helpers/cms/navigation_helper.rb", "app/helpers/cms/rendering_helper.rb", "app/helpers/cms/routing_helper.rb", "app/models", "app/models/ckeditor", "app/models/ckeditor/asset.rb", "app/models/ckeditor/attachment_file.rb", "app/models/ckeditor/picture.rb", "app/models/cms", "app/models/cms/blog_page.rb", "app/models/cms/category.rb", "app/models/cms/comment.rb", "app/models/cms/component.rb", "app/models/cms/configuration.rb", "app/models/cms/content_page.rb", "app/models/cms/link.rb", "app/models/cms/locality.rb", "app/models/cms/page.rb", "app/models/cms/post.rb", "app/models/cms/post_page.rb", "app/models/cms/tag.rb", "app/models/cms/user.rb", "app/modules", "app/modules/cms", "app/modules/cms/has_components.rb", "app/modules/cms/shared_application_controller_methods.rb", "app/presenters", "app/presenters/cms", "app/presenters/cms/locality_presenter.rb", "app/presenters/cms/post_presenter.rb", "app/views", "app/views/cms", "app/views/cms/components", "app/views/cms/components/_component.html.haml", "app/views/cms/dashboard", "app/views/cms/dashboard/categories", "app/views/cms/dashboard/categories/_form.html.haml", "app/views/cms/dashboard/categories/edit.html.haml", "app/views/cms/dashboard/categories/index.html.haml", "app/views/cms/dashboard/categories/new.html.haml", "app/views/cms/dashboard/comments", "app/views/cms/dashboard/comments/edit.html.haml", "app/views/cms/dashboard/comments/index.html.haml", "app/views/cms/dashboard/configurations", "app/views/cms/dashboard/configurations/edit.html.haml", "app/views/cms/dashboard/links", "app/views/cms/dashboard/links/_form.html.haml", "app/views/cms/dashboard/links/edit.html.haml", "app/views/cms/dashboard/links/index.html.haml", "app/views/cms/dashboard/links/new.html.haml", "app/views/cms/dashboard/localities", "app/views/cms/dashboard/localities/_form.html.haml", "app/views/cms/dashboard/localities/edit.html.haml", "app/views/cms/dashboard/localities/index.html.haml", "app/views/cms/dashboard/localities/new.html.haml", "app/views/cms/dashboard/pages", "app/views/cms/dashboard/pages/_form.html.haml", "app/views/cms/dashboard/pages/edit.html.haml", "app/views/cms/dashboard/pages/index.html.haml", "app/views/cms/dashboard/pages/new.html.haml", "app/views/cms/dashboard/posts", "app/views/cms/dashboard/posts/_form.html.haml", "app/views/cms/dashboard/posts/edit.html.haml", "app/views/cms/dashboard/posts/index.html.haml", "app/views/cms/dashboard/posts/new.html.haml", "app/views/cms/dashboard/sessions", "app/views/cms/dashboard/sessions/new.html.haml", "app/views/cms/dashboard/static", "app/views/cms/dashboard/static/dashboard.html.haml", "app/views/cms/dashboard/tags", "app/views/cms/dashboard/tags/index.html.haml", "app/views/cms/dashboard/users", "app/views/cms/dashboard/users/_form.html.haml", "app/views/cms/dashboard/users/edit.html.haml", "app/views/cms/dashboard/users/index.html.haml", "app/views/cms/dashboard/users/new.html.haml", "app/views/cms/pages", "app/views/cms/pages/route.html.erb", "app/views/layouts", "app/views/layouts/cms", "app/views/layouts/cms/application.html.haml", "app/views/layouts/cms/unauthenticated.html.haml", "config/deploy.rb", "config/initializers", "config/initializers/ckeditor.rb", "config/initializers/ckeditor_dragonfly.rb", "config/initializers/components.rb", "config/routes.rb", "db/migrate", "db/migrate/20130412181051_create_cms_localities.rb", "db/migrate/20130412181327_create_cms_pages.rb", "db/migrate/20130412181946_create_cms_components.rb", "db/migrate/20130422210707_create_cms_users.rb", "db/migrate/20130422233129_create_cms_posts.rb", "db/migrate/20130425225237_create_cms_configurations.rb", "db/migrate/20130427010651_create_cms_tags.rb", "db/migrate/20130506214338_create_cms_links.rb", "db/migrate/20130513223931_create_cms_comments.rb", "db/migrate/20130514225347_create_cms_categories.rb", "db/migrate/20130515012408_blog_updates.rb", "db/migrate/20130516195851_comments_update.rb", "db/migrate/20130517231921_add_meta_data.rb", "db/migrate/20130522173810_add_kind_to_pages.rb", "db/migrate/20130604183711_add_cms_published_to_pages.rb", "db/migrate/20130705165958_create_ckeditor_assets.rb", "db/migrate/20130708232540_add_admin_to_cms_users.rb", "lib/cms", "lib/cms.rb", "lib/cms/engine.rb", "lib/cms/version.rb", "lib/tasks", "lib/tasks/cms_tasks.rake", "test/cms_test.rb", "test/dummy", "test/dummy/README.rdoc", "test/dummy/Rakefile", "test/dummy/app", "test/dummy/app/assets", "test/dummy/app/assets/javascripts", "test/dummy/app/assets/javascripts/application.js", "test/dummy/app/assets/javascripts/pages.js", "test/dummy/app/assets/stylesheets", "test/dummy/app/assets/stylesheets/application.css", "test/dummy/app/assets/stylesheets/pages.css", "test/dummy/app/components", "test/dummy/app/components/definition_component.rb", "test/dummy/app/components/question_component.rb", "test/dummy/app/controllers", "test/dummy/app/controllers/application_controller.rb", "test/dummy/app/controllers/pages_controller.rb", "test/dummy/app/helpers", "test/dummy/app/helpers/application_helper.rb", "test/dummy/app/views", "test/dummy/app/views/components", "test/dummy/app/views/components/_definition_component.html.erb", "test/dummy/app/views/components/_question_component.html.erb", "test/dummy/app/views/layouts", "test/dummy/app/views/layouts/application.html.erb", "test/dummy/app/views/pages", "test/dummy/app/views/pages/home.html.erb", "test/dummy/app/views/posts", "test/dummy/app/views/posts/category.html.haml", "test/dummy/app/views/posts/index.html.haml", "test/dummy/app/views/posts/show.html.haml", "test/dummy/app/views/posts/tag.html.haml", "test/dummy/config", "test/dummy/config.ru", "test/dummy/config/application.rb", "test/dummy/config/boot.rb", "test/dummy/config/database.yml.default", "test/dummy/config/environment.rb", "test/dummy/config/environments", "test/dummy/config/environments/development.rb", "test/dummy/config/environments/production.rb", "test/dummy/config/environments/test.rb", "test/dummy/config/initializers", "test/dummy/config/initializers/backtrace_silencers.rb", "test/dummy/config/initializers/dragonfly.rb", "test/dummy/config/initializers/inflections.rb", "test/dummy/config/initializers/mime_types.rb", "test/dummy/config/initializers/secret_token.rb", "test/dummy/config/initializers/session_store.rb", "test/dummy/config/initializers/strong_parameters.rb", "test/dummy/config/initializers/wrap_parameters.rb", "test/dummy/config/locales", "test/dummy/config/locales/en.yml", "test/dummy/config/routes.rb", "test/dummy/db", "test/dummy/db/seeds.rb", "test/dummy/log", "test/dummy/log/development.log", "test/dummy/public", "test/dummy/public/404.html", "test/dummy/public/422.html", "test/dummy/public/500.html", "test/dummy/public/favicon.ico", "test/dummy/script", "test/dummy/script/rails", "test/dummy/test", "test/dummy/test/functional", "test/dummy/test/functional/pages_controller_test.rb", "test/fixtures", "test/fixtures/cms", "test/fixtures/cms/categories.yml", "test/fixtures/cms/comments.yml", "test/fixtures/cms/components.yml", "test/fixtures/cms/configurations.yml", "test/fixtures/cms/links.yml", "test/fixtures/cms/localities.yml", "test/fixtures/cms/pages.yml", "test/fixtures/cms/posts.yml", "test/fixtures/cms/tags.yml", "test/fixtures/cms/users.yml", "test/functional", "test/functional/cms", "test/functional/cms/comments_controller_test.rb", "test/functional/cms/dashboard", "test/functional/cms/dashboard/categories_controller_test.rb", "test/functional/cms/dashboard/comments_controller_test.rb", "test/functional/cms/dashboard/components_controller_test.rb", "test/functional/cms/dashboard/configurations_controller_test.rb", "test/functional/cms/dashboard/links_controller_test.rb", "test/functional/cms/dashboard/localities_controller_test.rb", "test/functional/cms/dashboard/pages_controller_test.rb", "test/functional/cms/dashboard/posts_controller_test.rb", "test/functional/cms/dashboard/sessions_controller_test.rb", "test/functional/cms/dashboard/static_controller_test.rb", "test/functional/cms/dashboard/tags_controller_test.rb", "test/functional/cms/dashboard/users_controller_test.rb", "test/functional/cms/pages_controller_test.rb", "test/functional/cms/posts_controller_test.rb", "test/integration", "test/integration/navigation_test.rb", "test/test_helper.rb", "test/unit", "test/unit/cms", "test/unit/cms/category_test.rb", "test/unit/cms/comment_test.rb", "test/unit/cms/component_test.rb", "test/unit/cms/configuration_test.rb", "test/unit/cms/link_test.rb", "test/unit/cms/locality_test.rb", "test/unit/cms/page_test.rb", "test/unit/cms/post_test.rb", "test/unit/cms/tag_test.rb", "test/unit/cms/user_test.rb"]
+  s.rubygems_version = "2.2.2"
+  s.summary = "Summary of Cms."
+  s.test_files = ["test/fixtures", "test/fixtures/cms", "test/fixtures/cms/pages.yml", "test/fixtures/cms/categories.yml", "test/fixtures/cms/tags.yml", "test/fixtures/cms/configurations.yml", "test/fixtures/cms/links.yml", "test/fixtures/cms/comments.yml", "test/fixtures/cms/components.yml", "test/fixtures/cms/users.yml", "test/fixtures/cms/posts.yml", "test/fixtures/cms/localities.yml", "test/cms_test.rb", "test/test_helper.rb", "test/functional", "test/functional/cms", "test/functional/cms/dashboard", "test/functional/cms/dashboard/components_controller_test.rb", "test/functional/cms/dashboard/static_controller_test.rb", "test/functional/cms/dashboard/links_controller_test.rb", "test/functional/cms/dashboard/categories_controller_test.rb", "test/functional/cms/dashboard/sessions_controller_test.rb", "test/functional/cms/dashboard/comments_controller_test.rb", "test/functional/cms/dashboard/tags_controller_test.rb", "test/functional/cms/dashboard/localities_controller_test.rb", "test/functional/cms/dashboard/posts_controller_test.rb", "test/functional/cms/dashboard/users_controller_test.rb", "test/functional/cms/dashboard/configurations_controller_test.rb", "test/functional/cms/dashboard/pages_controller_test.rb", "test/functional/cms/comments_controller_test.rb", "test/functional/cms/posts_controller_test.rb", "test/functional/cms/pages_controller_test.rb", "test/dummy", "test/dummy/db", "test/dummy/db/seeds.rb", "test/dummy/public", "test/dummy/public/500.html", "test/dummy/public/422.html", "test/dummy/public/404.html", "test/dummy/public/favicon.ico", "test/dummy/app", "test/dummy/app/helpers", "test/dummy/app/helpers/application_helper.rb", "test/dummy/app/views", "test/dummy/app/views/posts", "test/dummy/app/views/posts/tag.html.haml", "test/dummy/app/views/posts/show.html.haml", "test/dummy/app/views/posts/index.html.haml", "test/dummy/app/views/posts/category.html.haml", "test/dummy/app/views/components", "test/dummy/app/views/components/_question_component.html.erb", "test/dummy/app/views/components/_definition_component.html.erb", "test/dummy/app/views/pages", "test/dummy/app/views/pages/home.html.erb", "test/dummy/app/views/layouts", "test/dummy/app/views/layouts/application.html.erb", "test/dummy/app/assets", "test/dummy/app/assets/javascripts", "test/dummy/app/assets/javascripts/application.js", "test/dummy/app/assets/javascripts/pages.js", "test/dummy/app/assets/stylesheets", "test/dummy/app/assets/stylesheets/application.css", "test/dummy/app/assets/stylesheets/pages.css", "test/dummy/app/components", "test/dummy/app/components/question_component.rb", "test/dummy/app/components/definition_component.rb", "test/dummy/app/controllers", "test/dummy/app/controllers/pages_controller.rb", "test/dummy/app/controllers/application_controller.rb", "test/dummy/script", "test/dummy/script/rails", "test/dummy/config", "test/dummy/config/boot.rb", "test/dummy/config/routes.rb", "test/dummy/config/environment.rb", "test/dummy/config/database.yml.default", "test/dummy/config/environments", "test/dummy/config/environments/development.rb", "test/dummy/config/environments/test.rb", "test/dummy/config/environments/production.rb", "test/dummy/config/initializers", "test/dummy/config/initializers/backtrace_silencers.rb", "test/dummy/config/initializers/mime_types.rb", "test/dummy/config/initializers/inflections.rb", "test/dummy/config/initializers/dragonfly.rb", "test/dummy/config/initializers/wrap_parameters.rb", "test/dummy/config/initializers/strong_parameters.rb", "test/dummy/config/initializers/session_store.rb", "test/dummy/config/initializers/secret_token.rb", "test/dummy/config/application.rb", "test/dummy/config/locales", "test/dummy/config/locales/en.yml", "test/dummy/log", "test/dummy/log/development.log", "test/dummy/test", "test/dummy/test/functional", "test/dummy/test/functional/pages_controller_test.rb", "test/dummy/Rakefile", "test/dummy/config.ru", "test/dummy/README.rdoc", "test/integration", "test/integration/navigation_test.rb", "test/unit", "test/unit/cms", "test/unit/cms/configuration_test.rb", "test/unit/cms/category_test.rb", "test/unit/cms/locality_test.rb", "test/unit/cms/component_test.rb", "test/unit/cms/page_test.rb", "test/unit/cms/tag_test.rb", "test/unit/cms/post_test.rb", "test/unit/cms/link_test.rb", "test/unit/cms/user_test.rb", "test/unit/cms/comment_test.rb"]
 
-  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
-  s.test_files = Dir["test/**/*"]
+  if s.respond_to? :specification_version then
+    s.specification_version = 4
 
-  s.add_dependency "rails", "~> 3.2.1"
-  s.add_dependency "pg"
-  s.add_dependency "activerecord-postgres-hstore"
-  s.add_dependency "bootstrap-sass", '~> 2.0'
-  s.add_dependency "bootstrap-wysihtml5-rails"
-  s.add_dependency "select2-rails"
-  s.add_dependency "haml-rails"
-  s.add_dependency "strong_parameters"
-  s.add_dependency "presents"
-  s.add_dependency "kaminari"
-  s.add_dependency "bcrypt-ruby", '~> 3.0.0'
-  s.add_dependency "jquery-ui-rails"
-  s.add_dependency "dragonfly", '~> 0.9.15'
-  s.add_dependency "ckeditor", '~> 4.0.4'
-  s.add_dependency "nokogiri"
+    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<rails>, ["~> 3.2.1"])
+      s.add_runtime_dependency(%q<pg>, [">= 0"])
+      s.add_runtime_dependency(%q<activerecord-postgres-hstore>, [">= 0"])
+      s.add_runtime_dependency(%q<bootstrap-sass>, ["~> 2.0"])
+      s.add_runtime_dependency(%q<bootstrap-wysihtml5-rails>, [">= 0"])
+      s.add_runtime_dependency(%q<select2-rails>, [">= 0"])
+      s.add_runtime_dependency(%q<haml-rails>, [">= 0"])
+      s.add_runtime_dependency(%q<strong_parameters>, [">= 0"])
+      s.add_runtime_dependency(%q<presents>, [">= 0"])
+      s.add_runtime_dependency(%q<kaminari>, [">= 0"])
+      s.add_runtime_dependency(%q<bcrypt-ruby>, ["~> 3.0.0"])
+      s.add_runtime_dependency(%q<jquery-ui-rails>, [">= 0"])
+      s.add_runtime_dependency(%q<dragonfly>, ["~> 0.9.15"])
+      s.add_runtime_dependency(%q<ckeditor>, ["~> 4.0.4"])
+      s.add_runtime_dependency(%q<nokogiri>, [">= 0"])
+    else
+      s.add_dependency(%q<rails>, ["~> 3.2.1"])
+      s.add_dependency(%q<pg>, [">= 0"])
+      s.add_dependency(%q<activerecord-postgres-hstore>, [">= 0"])
+      s.add_dependency(%q<bootstrap-sass>, ["~> 2.0"])
+      s.add_dependency(%q<bootstrap-wysihtml5-rails>, [">= 0"])
+      s.add_dependency(%q<select2-rails>, [">= 0"])
+      s.add_dependency(%q<haml-rails>, [">= 0"])
+      s.add_dependency(%q<strong_parameters>, [">= 0"])
+      s.add_dependency(%q<presents>, [">= 0"])
+      s.add_dependency(%q<kaminari>, [">= 0"])
+      s.add_dependency(%q<bcrypt-ruby>, ["~> 3.0.0"])
+      s.add_dependency(%q<jquery-ui-rails>, [">= 0"])
+      s.add_dependency(%q<dragonfly>, ["~> 0.9.15"])
+      s.add_dependency(%q<ckeditor>, ["~> 4.0.4"])
+      s.add_dependency(%q<nokogiri>, [">= 0"])
+    end
+  else
+    s.add_dependency(%q<rails>, ["~> 3.2.1"])
+    s.add_dependency(%q<pg>, [">= 0"])
+    s.add_dependency(%q<activerecord-postgres-hstore>, [">= 0"])
+    s.add_dependency(%q<bootstrap-sass>, ["~> 2.0"])
+    s.add_dependency(%q<bootstrap-wysihtml5-rails>, [">= 0"])
+    s.add_dependency(%q<select2-rails>, [">= 0"])
+    s.add_dependency(%q<haml-rails>, [">= 0"])
+    s.add_dependency(%q<strong_parameters>, [">= 0"])
+    s.add_dependency(%q<presents>, [">= 0"])
+    s.add_dependency(%q<kaminari>, [">= 0"])
+    s.add_dependency(%q<bcrypt-ruby>, ["~> 3.0.0"])
+    s.add_dependency(%q<jquery-ui-rails>, [">= 0"])
+    s.add_dependency(%q<dragonfly>, ["~> 0.9.15"])
+    s.add_dependency(%q<ckeditor>, ["~> 4.0.4"])
+    s.add_dependency(%q<nokogiri>, [">= 0"])
+  end
 end
