@@ -7,8 +7,7 @@ module Cms
     private
 
     def current_locality
-      @current_locality ||= find_locality || conf.default_locality ||
-        Cms::Locality.order('id').first || Cms::Locality.new
+      @current_locality ||= find_locality || conf.default_locality || Cms::Locality.order('id').first || Cms::Locality.new
     end
 
     def find_locality

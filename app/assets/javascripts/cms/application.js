@@ -1,10 +1,10 @@
-//= require jquery
-//= require jquery_ujs
-//= require jquery.ui.all
 //= require bootstrap
 //= require bootstrap-wysihtml5
 //= require ckeditor/init
 //= require select2
+//= require jquery
+//= require jquery_ujs
+//= require jquery.ui.all
 //= require_tree .
 //= require_self
 
