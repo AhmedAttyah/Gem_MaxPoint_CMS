@@ -11,7 +11,13 @@
         .container
           = link_to conf.name, dashboard_root_path, class: 'brand'
           %ul.nav
-            %li= link_to "Pages" , dashboard_pages_path
+            %li.dropdown
+              = link_to "#", class: "dropdown-toggle", data: {toggle: 'dropdown'} do
+                Pages
+                %b.caret
+              %ul.dropdown-menu
+                %li= link_to "View All" , dashboard_pages_path
+                %li= link_to "Copy to New Locality", new_dashboard_copies_path
             %li= link_to "Navigation", dashboard_links_path
             %li.dropdown
               = link_to "#", class: "dropdown-toggle", data: {toggle: 'dropdown'} do

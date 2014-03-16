@@ -10,12 +10,13 @@ Cms::Engine.routes.draw do
       resource :session, only: %w(new create) do
         get "/destroy" => "sessions#destroy"
       end
-      resources :users
 
+      resources :users
       resources :localities, except: %w(show)
       resources :pages, except: %w(show)
       resources :links, path: '/navigation', except: %w(show)
       resource :configuration, only: %w(edit update)
+      resource :copies, only: %w(new create)
 
       resources :posts, except: :show
       resources :comments, except: %w(show new create)

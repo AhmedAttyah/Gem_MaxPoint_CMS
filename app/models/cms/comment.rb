@@ -5,8 +5,7 @@ module Cms
   class Comment < ActiveRecord::Base
     belongs_to :post
     belongs_to :parent, class_name: 'Cms::Comment'
-    has_many :comments, foreign_key: :parent_id, class_name: 'Cms::Component',
-      dependent: :destroy
+    has_many :comments, foreign_key: :parent_id, class_name: 'Cms::Component', dependent: :destroy
     belongs_to :approved_by, class_name: 'Cms::User'
 
     validates :name, presence: true

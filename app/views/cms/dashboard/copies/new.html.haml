@@ -1,0 +1,5 @@
+= form_tag(:controller => 'copies', :action => 'create', :method => 'post') do
+  %legend Copy Pages to New Locality
+  = select_tag "to_locality", options_from_collection_for_select(@locality, "id", "name")
+  .container
+    = submit_tag "Copy to New Locality", class: 'btn btn-primary btn-page-save'
