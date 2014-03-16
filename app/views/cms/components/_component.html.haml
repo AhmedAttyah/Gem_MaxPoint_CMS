@@ -4,6 +4,7 @@
     = component.friendly_name
     = remove_child_link '<i class="icon-remove"></i>'.html_safe, f, class: 'pull-right'
   = f.hidden_field :"_type", value: component.name
+  = f.hidden_field :"locality_id", value: current_locality.id
   = f.hidden_field :position
   .field-container
     - component.fields_with_options.each do |field, options|
