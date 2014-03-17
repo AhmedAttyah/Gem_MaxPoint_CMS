@@ -10,9 +10,9 @@ namespace :copy_locality do
 
   task :copy_pages => [:environment] do
     values = ENV['LOCALITY'].split(',')
-    @@toLocalityID = values.first          # to locality ID
-    @@fromLocalityID = values.last         # from locality ID
-    @@copied = []                          # array of the ids for the pages copied
+    @@toLocalityID = values.first.to_i  # to locality ID
+    @@fromLocalityID = values.last.to_i  # from locality ID
+    @@copied = []  # array of the ids for the pages copied
 
     public
 
@@ -66,9 +66,9 @@ namespace :copy_locality do
     # clones record
     def cloneRecord(page,type)
       clone_page = page.dup
-      clone_page.locality_id = @@toLocalityID               # makes copied page have new locality
+      clone_page.locality_id = @@toLocalityID # makes copied page have new locality
       clone_page.copy += [@@fromLocalityID,@@toLocalityID]  # have to make this record so newly copied pages can't be copied back to their original locality
-      clone_page.copy_from = @@fromLocalityID               # makes record of where page was copied from
+      clone_page.copy_from = @@fromLocalityID  # makes record of where page was copied from
 
       if type == 'link' || type == 'component'  # this can run here because link && component copies are called after page copies
         clonePageID = Cms::Copy.select("id_to").where(:id_from => page.page_id, :category => 'page', :locality_from => @@fromLocalityID, :locality_to => @@toLocalityID).first
