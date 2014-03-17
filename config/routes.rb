@@ -16,7 +16,7 @@ Cms::Engine.routes.draw do
       resources :pages, except: %w(show)
       resources :links, path: '/navigation', except: %w(show)
       resource :configuration, only: %w(edit update)
-      resource :copies, only: %w(new create)
+      resource :duplicates, only: %w(new create)
 
       resources :posts, except: :show
       resources :comments, except: %w(show new create)
