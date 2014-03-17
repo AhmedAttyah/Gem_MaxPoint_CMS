@@ -7,14 +7,14 @@ module Cms
     end
 
     def create
-      Duplicate.main(params['to_locality'],current_locality.id)
-      flash[:success] = "Successfully Copied pages."
+      system "rake copy_locality:copy_pages LOCALITY=#{params[:to_locality]},#{current_locality.id} &"
+      flash[:notice] = "Your pages are being copied in the background.  Please wait at least 5 minutes to view them."
       redirect_to dashboard_pages_url
     end
 
     private
     def copy_params
-      params.require(:copy).permit(
+      params.require(:duplicate).permit(
         :to_locality
       )
     end
