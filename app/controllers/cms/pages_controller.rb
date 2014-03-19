@@ -42,10 +42,14 @@ module Cms
           else
             @posts = Post.scoped
           end
-          @posts = @posts.in(current_locality).published.published_after.ordered.page(params[:page])
+          @posts = @posts.in(current_locality).published.published_after.
+            ordered.page(params[:page]).per(10)
+        else
+          redirect_to '/' if not @page.published == true
         end
       end
     end
+
 
     private
 

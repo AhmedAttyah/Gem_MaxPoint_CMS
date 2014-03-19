@@ -16,6 +16,7 @@ module Cms
         else
           next if _destroy
           component = _type.constantize.new(v)
+          self.save
           if self.class <= Cms::Page
             component.page = self
           else

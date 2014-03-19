@@ -30,6 +30,11 @@ $(document).ready(function() {
 
     $container.append($content);
     CMS.repositionComponentsIn($container);
+    for(var instanceName in CKEDITOR.instances) {
+      CKEDITOR.remove(CKEDITOR.instances[instanceName]);
+    }
+    $('div[id^="cke_page_components_attributes"]').remove();
+    CKEDITOR.replaceAll('wysiwyg');
   });
 
   $(document).on('click', 'form a.remove_child', function() {

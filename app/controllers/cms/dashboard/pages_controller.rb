@@ -18,10 +18,14 @@ module Cms
     def create
       @page = Page.new(page_params.merge(locality_id: current_locality.id))
       if @page.save
-        flash[:success] = "Page created."
         if params[:commit] == 'Preview'
           redirect_to @page.locality_path
+          Thread.new(@page) do |page|
+            sleep 10
+            page.destroy
+          end
         else
+          flash[:success] = "Page created."
           redirect_to edit_dashboard_page_url(@page)
         end
       else

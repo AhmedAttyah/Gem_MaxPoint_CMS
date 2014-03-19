@@ -44,7 +44,6 @@ module Cms
     def self.home_page
       where(type: ['', nil, Cms::ContentPage.name], parent_id: nil, slug: ['', nil]).first
     end
-
     def self.post_page
       where(type: Cms::PostPage.name).first
     end
@@ -76,7 +75,8 @@ module Cms
     end
 
     def path_segments
-      return Array.new if self.parent.nil?
+      return [] if self.parent.nil? and self.pages.count > 0
+      return [self.slug] if self.parent.nil? and self.pages.count == 0
       _segments = self.parent.path_segments
       _segments << self.slug
       _segments
@@ -93,5 +93,6 @@ module Cms
       self.class.select_for(self.locality, true)
       Link.select_for(self.locality, true)
     end
+
   end
 end
