@@ -11,6 +11,11 @@ module Cms
       link
     end
 
+    # this returns true if user's country makes us have to put cookie warning on site
+    def cookieWarning
+      return Cms::Geolocation.countryWarningList(request.remote_ip).include? Cms::Geolocation.data(request.remote_ip,'country_code')
+    end
+
     def localities
       Cms::Locality.all
     end
