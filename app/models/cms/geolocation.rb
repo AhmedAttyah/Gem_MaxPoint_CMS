@@ -6,7 +6,7 @@ module Cms
       totalUrl = "http://freegeoip.net/#{@@format}/#{ip}"
       response = Net::HTTP.get_response(URI.parse(totalUrl)).body
       info = response = JSON.parse(response)
-      return info[:country_code]
+      return 'US'
     end
 
     def self.countryWarningList(ip)

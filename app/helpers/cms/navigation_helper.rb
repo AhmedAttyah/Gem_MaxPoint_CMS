@@ -16,6 +16,10 @@ module Cms
       return Cms::Geolocation.countryWarningList(request.remote_ip).include? Cms::Geolocation.data(request.remote_ip,'country_code')
     end
 
+    def userLocality
+      return Cms::Geolocation.data(request.remote_ip,'country_code')
+    end
+
     def localities
       Cms::Locality.all
     end
