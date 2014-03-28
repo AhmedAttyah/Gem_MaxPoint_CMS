@@ -37,6 +37,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<nokogiri>, [">= 0"])
       s.add_runtime_dependency(%q<postgres_ext>, [">= 0"])
       s.add_runtime_dependency(%q<paperclip>, [">= 0"])
+      s.add_runtime_dependency(%q<fog>, [">= 0"])
     else
       s.add_dependency(%q<rails>, ["~> 3.2.1"])
       s.add_dependency(%q<pg>, [">= 0"])
@@ -55,6 +56,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<nokogiri>, [">= 0"])
       s.add_dependency(%q<postgres_ext>, [">= 0"])
       s.add_dependency(%q<paperclip>, [">= 0"])
+      s.add_dependency(%q<fog>, [">= 0"])
     end
   else
     s.add_dependency(%q<rails>, ["~> 3.2.1"])
@@ -74,5 +76,6 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<nokogiri>, [">= 0"])
     s.add_dependency(%q<postgres_ext>, [">= 0"])
     s.add_dependency(%q<paperclip>, [">= 0"])
+    s.add_dependency(%q<fog>, [">= 0"])
   end
 end

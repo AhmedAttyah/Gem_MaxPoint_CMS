@@ -6,6 +6,7 @@ require 'dragonfly'
 app = Dragonfly[:ckeditor]
 app.configure_with(:rails)
 app.configure_with(:imagemagick)
+app.configure_with(:heroku, 'maxpoint')
 app.datastore = Dragonfly::DataStorage::S3DataStore.new({
   :bucket_name        => 'maxpoint',
   :access_key_id      => 'AKIAIUQARUGKEO3H4KUA',
