@@ -32,11 +32,12 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<kaminari>, [">= 0"])
       s.add_runtime_dependency(%q<bcrypt-ruby>, ["~> 3.0.0"])
       s.add_runtime_dependency(%q<jquery-ui-rails>, [">= 0"])
-      s.add_runtime_dependency(%q<dragonfly>, ["~> 0.9.15"])
+      s.add_runtime_dependency(%q<dragonfly>, ["~> 1.0"])
       s.add_runtime_dependency(%q<ckeditor>, ["~> 4.0.4"])
       s.add_runtime_dependency(%q<nokogiri>, [">= 0"])
       s.add_runtime_dependency(%q<postgres_ext>, [">= 0"])
       s.add_runtime_dependency(%q<paperclip>, [">= 0"])
+      s.add_dependency(%q<dragonfly-s3_data_store>, [">= 0"])
     else
       s.add_dependency(%q<rails>, ["~> 3.2.1"])
       s.add_dependency(%q<pg>, [">= 0"])
@@ -48,13 +49,15 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<strong_parameters>, [">= 0"])
       s.add_dependency(%q<presents>, [">= 0"])
       s.add_dependency(%q<kaminari>, [">= 0"])
+      s.add_dependency(%q<dragonfly-s3_data_store>, [">= 0"])
       s.add_dependency(%q<bcrypt-ruby>, ["~> 3.0.0"])
       s.add_dependency(%q<jquery-ui-rails>, [">= 0"])
-      s.add_dependency(%q<dragonfly>, ["~> 0.9.15"])
+      s.add_dependency(%q<dragonfly>, ["~> 1.0"])
       s.add_dependency(%q<ckeditor>, ["~> 4.0.4"])
       s.add_dependency(%q<nokogiri>, [">= 0"])
       s.add_dependency(%q<postgres_ext>, [">= 0"])
       s.add_dependency(%q<paperclip>, [">= 0"])
+      s.add_dependency(%q<dragonfly-s3_data_store>, [">= 0"])
     end
   else
     s.add_dependency(%q<rails>, ["~> 3.2.1"])
@@ -69,10 +72,11 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<kaminari>, [">= 0"])
     s.add_dependency(%q<bcrypt-ruby>, ["~> 3.0.0"])
     s.add_dependency(%q<jquery-ui-rails>, [">= 0"])
-    s.add_dependency(%q<dragonfly>, ["~> 0.9.15"])
+    s.add_dependency(%q<dragonfly>, ["~> 1.0"])
     s.add_dependency(%q<ckeditor>, ["~> 4.0.4"])
     s.add_dependency(%q<nokogiri>, [">= 0"])
     s.add_dependency(%q<postgres_ext>, [">= 0"])
     s.add_dependency(%q<paperclip>, [">= 0"])
+    s.add_dependency(%q<dragonfly-s3_data_store>, [">= 0"])
   end
 end
